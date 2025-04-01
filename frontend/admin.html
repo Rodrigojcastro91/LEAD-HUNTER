@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lead Hunter – CRM Admin</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .admin-container {
+      max-width: 900px;
+      margin: 50px auto;
+      background-color: #ffffff20;
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      color: #fff;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #ffffff30;
+      font-weight: bold;
+      color: #FFD700;
+    }
+
+    tr:nth-child(even) {
+      background-color: #ffffff10;
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <h2>🧠 Visão Geral dos Clientes</h2>
+    <table id="tabela-clientes">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Client ID</th>
+          <th>Leads Captados</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Linhas geradas via JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Lead Hunter – Dashboard</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .dash-container {
+      max-width: 800px;
+      background-color: #ffffff20;
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 16px;
+      margin: 40px auto;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background-color: #ffffff10;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    strong {
+      color: #FFD700;
+    }
+  </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <a href="index.html">🏠 Início</a>
+        <a href="dashboard.html?id=cliente001">📊 Resultados</a>
+      </nav>
+      
+      
+  <div class="dash-container">
+    <h2>📊 Resultados da Automação</h2>
+    <div id="dados-dashboard">
+      <p>Carregando informações...</p>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

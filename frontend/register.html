@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lead Hunter – Criar Conta</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .register-container {
+      background-color: #ffffff20;
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 16px;
+      max-width: 400px;
+      width: 90%;
+      margin: 40px auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      text-align: center;
+      color: #fff;
+    }
+
+    .register-container input {
+      margin-bottom: 15px;
+    }
+
+    .register-container a {
+      color: #FFD700;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .register-container a:hover {
+      text-decoration: underline;
+    }
+
+    .status {
+      margin-top: 15px;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <h2>📝 Criar Conta no Lead Hunter</h2>
+    <form id="register-form">
+      <input type="text" id="nome" placeholder="Seu nome" required />
+      <input type="email" id="email" placeholder="Seu e-mail" required />
+      <input type="password" id="senha" placeholder="Crie uma senha" required />
+      <button type="submit">Criar Conta</button>
+    </form>
+    <p class="status" id="status"></p>
+    <p>Já tem conta? <a href="login.html">Fazer login</a></p>
+  </div>
+
+  <script>
+    const form = document.getElementById('register-form');
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const senha = document.getElementById('senha').value.trim();
+
+      status.textContent = '⏳ Criando conta...';
+
+      try {
+        const res = await fetch('http://localhost:3000/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nome, email, senha })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          localStorage.setItem('client_id', data.client_id);
+          status.textContent = '✅ Conta criada com sucesso!';
+          window.location.href = 'index.html';
+        } else {
+          status.textContent = '❌ ' + (data.erro || 'Erro desconhecido.');
+        }
+      } catch (err) {
+        status.textContent = '❌ Erro ao conectar com o servidor.';
+      }
+    });
+  </script>
+</body>
+</html>

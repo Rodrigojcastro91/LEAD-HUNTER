@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lead Hunter – Login</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .login-container {
+      background-color: #ffffff20;
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 16px;
+      max-width: 400px;
+      width: 90%;
+      margin: 40px auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      text-align: center;
+      color: #fff;
+    }
+
+    .login-container input {
+      margin-bottom: 15px;
+    }
+
+    .login-container a {
+      color: #FFD700;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+
+    .status {
+      margin-top: 15px;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>🔐 Acesso ao Lead Hunter</h2>
+    <form id="login-form">
+      <input type="email" id="email" placeholder="Seu e-mail" required />
+      <input type="password" id="senha" placeholder="Sua senha" required />
+      <button type="submit">Entrar</button>
+    </form>
+    <p class="status" id="status"></p>
+    <p>Não tem conta? <a href="register.html">Criar agora</a></p>
+  </div>
+
+  <script>
+    const form = document.getElementById('login-form');
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value.trim();
+      const senha = document.getElementById('senha').value.trim();
+
+      status.textContent = '⏳ Validando...';
+
+      try {
+        const res = await fetch('http://localhost:3000/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, senha })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          localStorage.setItem('client_id', data.client_id);
+          status.textContent = '✅ Login bem-sucedido!';
+          window.location.href = 'index.html';
+        } else {
+          status.textContent = '❌ ' + (data.erro || 'Erro desconhecido.');
+        }
+      } catch (err) {
+        status.textContent = '❌ Erro de conexão com servidor.';
+      }
+    });
+  </script>
+</body>
+</html>

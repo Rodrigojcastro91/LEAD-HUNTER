@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #833AB4, #C13584, #FD1D1D, #F77737);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .container {
+    background-color: #ffffff20;
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  input, select, button {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+  }
+  
+  input, select {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  button {
+    background-color: #FD1D1D;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #C13584;
+  }
+  
+  #status {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 0.95rem;
+  }
+  
+  .top-nav {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 12px 0;
+    border-radius: 0 0 12px 12px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+  
+  .top-nav a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .top-nav a:hover {
+    color: #FFD700;
+  }
+  
+  body {
+    padding-top: 70px; /* empurra o conteúdo pra baixo do nav */
+  }
+  

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lead Hunter – Entrega Orgânica</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="index.html">🏠 Início</a>
+    <a href="dashboard.html?id=cliente001">📊 Resultados</a>
+  </nav>
+  
+  
+  <div class="container">
+    <h1>🚀 Lead Hunter</h1>
+    <p>Impulsione postagens no Instagram com entrega orgânica inteligente.</p>
+
+    <form id="form-automacao">
+      <label for="linkPostagem">Link da Postagem (Feed ou Reels):</label>
+      <input type="text" id="linkPostagem" name="linkPostagem" placeholder="https://www.instagram.com/p/..." required />
+
+      <label for="categoria">Escolha a Categoria:</label>
+      <select id="categoria" name="categoria" required>
+        <option value="">Selecione uma categoria</option>
+        <option value="imoveis">Imóveis</option>
+        <option value="beleza">Beleza</option>
+        <option value="saude">Saúde</option>
+        <option value="moda">Moda</option>
+        <option value="marketing">Marketing</option>
+        <option value="negocios">Negócios</option>
+        <option value="educacao">Educação</option>
+        <option value="tecnologia">Tecnologia</option>
+        <option value="financas">Finanças</option>
+        <option value="gastronomia">Gastronomia</option>
+        <option value="viagem">Viagem</option>
+        <option value="fitness">Fitness</option>
+        <option value="empreendedorismo">Empreendedorismo</option>
+        <option value="inovacao">Inovação</option>
+        <option value="games">Games</option>
+        <option value="fotografia">Fotografia</option>
+        <option value="pets">Pets</option>
+        <option value="arquitetura">Arquitetura</option>
+        <option value="eventos">Eventos</option>
+        <option value="musica">Música</option>
+      </select>
+
+      <button type="submit">Iniciar Automação</button>
+    </form>
+
+    <div id="status"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
